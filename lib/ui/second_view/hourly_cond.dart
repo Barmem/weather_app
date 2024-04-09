@@ -46,7 +46,6 @@ class _HourlyWeatherWidgetState extends State<HourlyWeatherWidget> {
       timestamp = timestamp ~/ 1000;
       for (var hour in forecast) {
         int epoch = hour['time_epoch'];
-        // print('${timestamp}  ${epoch}');
         if (epoch < timestamp) { 
         continue;
         }
