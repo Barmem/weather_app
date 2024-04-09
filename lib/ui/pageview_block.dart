@@ -1,14 +1,15 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class PageViewWithText extends StatelessWidget {
   final String title;
-  final String description;
   final Widget firstView;
   final Widget secondView;
+  final double viewHeight;
   const PageViewWithText({
     this.title = "Title",
-    this.description = "Desc",
+    this.viewHeight = 300,
     required this.firstView,
     required this.secondView,
     super.key
@@ -25,16 +26,13 @@ class PageViewWithText extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: 400,
+            height: viewHeight,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
-                ),),
-                Text(description, style: TextStyle(
-                  fontSize: 20
                 ),),
                 Expanded(
                   child: Padding(
