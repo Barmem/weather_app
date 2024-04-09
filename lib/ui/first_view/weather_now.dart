@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:geolocator/geolocator.dart';
 
 
 class WeatherNowWidget extends StatefulWidget {
@@ -26,10 +27,20 @@ class _WeatherNowWidgetState extends State<WeatherNowWidget> {
   Future<void> fetchData() async {
     // Make sure to replace 'YOUR_API_KEY' with your actual WeatherAPI.com API key
     String apiKey = '***REMOVED***';
-    String apiUrl = 'https://api.weatherapi.com/v1/current.json?key=$apiKey&lang=ru&q=Omsk';
-
+    String apiUrl = 'https://api.weatherapi.com/v1/current.json?key=$apiKey&lang=ru&q=';
+    String location = 'Omsk';
     try {
-      final response = await http.get(Uri.parse(apiUrl));
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low,
+      );
+      location = position.latitude.toString() + "," + position.longitude.toString();
+    } catch (e) {
+      print('Error fetching location: $e');
+    }
+    try {
+
+
+      final response = await http.get(Uri.parse(apiUrl + location));
       final data = json.decode(utf8.decode(response.bodyBytes));
 
       setState(() {
