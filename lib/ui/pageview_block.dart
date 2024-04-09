@@ -4,14 +4,12 @@ import 'package:flutter/widgets.dart';
 
 class PageViewWithText extends StatelessWidget {
   final String title;
-  final Widget firstView;
-  final Widget secondView;
+  final List<Widget> views;
   final double viewHeight;
   const PageViewWithText({
     this.title = "Title",
     this.viewHeight = 300,
-    required this.firstView,
-    required this.secondView,
+    required this.views,
     super.key
 });
 
@@ -37,10 +35,8 @@ class PageViewWithText extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0,16.0,0,0),
-                    child: PageView(children: [
-                      firstView,
-                      secondView
-                      ]
+                    child: PageView(children: 
+                      views
                     ),
                   ),
                 )
