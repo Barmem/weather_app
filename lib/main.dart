@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: PageViewWithText(title: "Сейчас", viewHeight: 224, firstView: Center(child: WeatherNowWidget()), secondView: WeatherNowDetailsWidget()),
+          child: PageViewWithText(title: "Сейчас", viewHeight: 224, views: [ Center(child: WeatherNowWidget()), WeatherNowDetailsWidget() ] ),
         ),
       ),
     );
