@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/ui/third_view/draw_block_vertical.dart';
@@ -10,10 +9,10 @@ class DailyWeatherWidget extends StatefulWidget {
   final String location;
 
   const DailyWeatherWidget({
-    Key? key,
+    super.key,
     required this.apiKey,
     required this.location,
-  }) : super(key: key);
+  });
 
   @override
   _DailyWeatherWidgetState createState() => _DailyWeatherWidgetState();
@@ -84,7 +83,7 @@ class _DailyWeatherWidgetState extends State<DailyWeatherWidget> {
   @override
   Widget build(BuildContext context) {
     return dailyMaxTemps.isEmpty
-        ? Center(
+        ? const Center(
             child: CircularProgressIndicator(),
           )
         : SingleChildScrollView(

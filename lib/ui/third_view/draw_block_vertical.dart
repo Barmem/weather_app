@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 
 class CustomBlockWidgetVertical extends StatelessWidget {
@@ -13,7 +11,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
   final String bottomText;
   final String image;
 
-  CustomBlockWidgetVertical({required this.heightLeft,required this.heightRight, required this.widthLeft, required this.widthRight, required this.maxTemp, required this.minTemp, required this.bottomText, required this.image});
+  const CustomBlockWidgetVertical({super.key, required this.heightLeft,required this.heightRight, required this.widthLeft, required this.widthRight, required this.maxTemp, required this.minTemp, required this.bottomText, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +22,8 @@ class CustomBlockWidgetVertical extends StatelessWidget {
           flex: 4,
           child: Row(
             children: [
-              Spacer(),
-              Text(widthLeft.toString() + "% ",),
+              const Spacer(),
+              Text("$widthLeft% ",),
               Stack(
                 alignment: Alignment.centerRight,
                 children: [
@@ -33,7 +31,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                     height: heightLeft, 
                     width: widthLeft,
                     color: Colors.blue,
-                    child: Text("")
+                    child: const Text("")
                   ),
                   Row(
                     children: [
@@ -48,7 +46,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Column(
               children: [
                 Text(bottomText)
@@ -70,7 +68,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                 height: heightRight, 
                 width: widthRight,
                 color: Colors.amber,
-                child: Align(
+                child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(""),
                 ),
@@ -79,7 +77,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(maxTemp),
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

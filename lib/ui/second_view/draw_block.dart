@@ -8,7 +8,7 @@ class CustomBlockWidget extends StatelessWidget {
   final String bottomText;
   final String image;
 
-  CustomBlockWidget({required this.height, required this.width, required this.topText, required this.bottomText, required this.image});
+  const CustomBlockWidget({super.key, required this.height, required this.width, required this.topText, required this.bottomText, required this.image});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class PageViewWithText extends StatelessWidget {
   final String title;
@@ -22,13 +21,13 @@ class PageViewWithText extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
+          child: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: viewHeight,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: TextStyle(
+                Text(title, style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
                 ),),

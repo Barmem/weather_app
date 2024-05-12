@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:geolocator/geolocator.dart';
 
 
 class WeatherNowWidget extends StatefulWidget {
-  const WeatherNowWidget({super.key});
+  final apiKey;
+  final location;
+  const WeatherNowWidget({
+    required this.apiKey,
+    required this.location,
+    super.key
+    });
 
   @override
   State<WeatherNowWidget> createState() => _WeatherNowWidgetState();
 }
 
 class _WeatherNowWidgetState extends State<WeatherNowWidget> {
-
   late String description;
   late String weatherImgUrl = '';
   late String temperature;
@@ -25,17 +29,17 @@ class _WeatherNowWidgetState extends State<WeatherNowWidget> {
   }
 
   Future<void> fetchData() async {
-    // Make sure to replace 'YOUR_API_KEY' with your actual WeatherAPI.com API key
-    String apiKey = '***REMOVED***';
-    String apiUrl = 'https://api.weatherapi.com/v1/current.json?key=$apiKey&lang=ru&q=';
-    String location = 'Omsk';
+    String apiUrl = 'https://api.weatherapi.com/v1/current.json?key=${widget.apiKey}&lang=ru&q=';
+    String location = widget.location;
+    print(widget.apiKey);
+    print(location);
     try {
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low,
       );
-      location = position.latitude.toString() + "," + position.longitude.toString();
+      location = "${position.latitude},${position.longitude}";
     } catch (e) {
-      print('Error fetching location: $e');
+      // print('Error fetching location: $e');
     }
     try {
 
@@ -46,7 +50,7 @@ class _WeatherNowWidgetState extends State<WeatherNowWidget> {
       setState(() {
         description = data['current']['condition']['text'];
         weatherImgUrl = "https:" + data['current']['condition']['icon'].replaceAll('64x64', '128x128');
-        temperature = data['current']['temp_c'].toString() + '°C';
+        temperature = '${data['current']['temp_c']}°C';
         feelsLike = "Ощущается как " + data['current']['feelslike_c'].toString() + '°C';
       });
     } catch (e) {
@@ -60,7 +64,7 @@ class _WeatherNowWidgetState extends State<WeatherNowWidget> {
         ? Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(description, style: TextStyle( fontSize: 20)),
+            Text(description, style: const TextStyle( fontSize: 20)),
             Row(
               // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -68,14 +72,14 @@ class _WeatherNowWidgetState extends State<WeatherNowWidget> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(temperature, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
-                      Text(feelsLike, style: TextStyle( fontSize: 20)),
+                      Text(temperature, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
+                      Text(feelsLike, style: const TextStyle( fontSize: 20)),
                     ],
                   ),
                 ],
               ),
           ],
         )
-        : CircularProgressIndicator(); // Show a loading indicator while data is being fetched
+        : const CircularProgressIndicator(); // Show a loading indicator while data is being fetched
   }
 }

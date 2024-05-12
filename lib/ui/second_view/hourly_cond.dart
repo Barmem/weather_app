@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/ui/second_view/draw_block.dart';
@@ -10,10 +9,10 @@ class HourlyWeatherWidget extends StatefulWidget {
   final String location;
 
   const HourlyWeatherWidget({
-    Key? key,
+    super.key,
     required this.apiKey,
     required this.location,
-  }) : super(key: key);
+  });
 
   @override
   _HourlyWeatherWidgetState createState() => _HourlyWeatherWidgetState();
@@ -73,7 +72,7 @@ class _HourlyWeatherWidgetState extends State<HourlyWeatherWidget> {
   @override
   Widget build(BuildContext context) {
     return hourlyTemps.isEmpty
-        ? Center(
+        ? const Center(
             child: CircularProgressIndicator(),
           )
         : SingleChildScrollView(
