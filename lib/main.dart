@@ -7,6 +7,12 @@ import 'package:weather_app/ui/third_view/daily_cond.dart';
 
 const apiKey = String.fromEnvironment('API_KEY', defaultValue: '');
 const location = String.fromEnvironment('LOCATION', defaultValue: '');
+const nowWeatherTitle  = "Сейчас";
+const todayWeatherTitle = "Сегодня";
+const weekWeatherTitle = "Неделя";
+const double nowWeatherheight  = 224;
+const double todayWeatherheight = 224;
+const double weekWeatherheight = 600;
 void main() {
   runApp(const MainApp());
 }
@@ -19,10 +25,10 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: ListView(
-          children: [
-            PageViewWithText(title: "Сейчас", viewHeight: 224, views: [ Center(child: WeatherNowWidget( apiKey: apiKey, location: location )), WeatherNowDetailsWidget( apiKey: apiKey, location: location ) ] ),
-            PageViewWithText(title: "Сегодня", viewHeight: 224, views: [ HourlyWeatherWidget( apiKey: apiKey, location: location ), ] ),
-            PageViewWithText(title: "Неделя", viewHeight: 600, views: [ DailyWeatherWidget( apiKey: apiKey, location: location ), ] ),
+          children: const [
+            PageViewWithText(title: nowWeatherTitle, viewHeight: nowWeatherheight, views: [ Center(child: WeatherNowWidget( apiKey: apiKey, location: location )), WeatherNowDetailsWidget( apiKey: apiKey, location: location ) ] ),
+            PageViewWithText(title: todayWeatherTitle, viewHeight: todayWeatherheight, views: [ HourlyWeatherWidget( apiKey: apiKey, location: location ), ] ),
+            PageViewWithText(title: weekWeatherTitle, viewHeight: weekWeatherheight, views: [ DailyWeatherWidget( apiKey: apiKey, location: location ), ] ),
           ],
         ),
       ),
