@@ -10,8 +10,9 @@ class CustomBlockWidgetVertical extends StatelessWidget {
   final String minTemp;
   final String bottomText;
   final String image;
+  final double normalized;
 
-  const CustomBlockWidgetVertical({super.key, required this.heightLeft,required this.heightRight, required this.widthLeft, required this.widthRight, required this.maxTemp, required this.minTemp, required this.bottomText, required this.image});
+  const CustomBlockWidgetVertical({super.key, required this.heightLeft,required this.heightRight, required this.widthLeft, required this.widthRight, required this.maxTemp, required this.minTemp, required this.bottomText, required this.image, required this.normalized});
 
   @override
   Widget build(BuildContext context) {
@@ -64,18 +65,41 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                 color: Colors.amber[800],
                 child: Center(child: Text(minTemp)),
               ),
-              Container(
-                height: heightRight, 
-                width: widthRight,
-                color: Colors.amber,
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(""),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(maxTemp),
+              normalized > 0.6
+              ? Stack(
+                alignment: Alignment.centerRight,
+                children: [
+                  Container(
+                    height: heightRight, 
+                    width: widthRight,
+                    color: Colors.amber,
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(""),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(maxTemp),
+                  ),
+                ],
+              )
+              : Row(
+                children: [
+                  Container(
+                    height: heightRight, 
+                    width: widthRight,
+                    color: Colors.amber,
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(""),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(maxTemp),
+                  ),
+                ],
               ),
               const Spacer()
             ],

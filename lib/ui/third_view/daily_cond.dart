@@ -102,6 +102,7 @@ class _DailyWeatherWidgetState extends State<DailyWeatherWidget> {
                     widthRight: normalizedTempWidth[index].clamp(0, 1) * 70, 
                     image: dailyConditions[index], 
                     bottomText: weekDayCount[index],
+                    normalized: normalizedTempWidth[index],
                   ),
                 );
               }),
