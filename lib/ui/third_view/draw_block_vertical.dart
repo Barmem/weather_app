@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 class CustomBlockWidgetVertical extends StatelessWidget {
@@ -28,11 +30,18 @@ class CustomBlockWidgetVertical extends StatelessWidget {
               Stack(
                 alignment: Alignment.centerRight,
                 children: [
-                  Container(
-                    height: heightLeft, 
-                    width: widthLeft,
-                    color: Colors.blue,
-                    child: const Text("")
+                  Material(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    elevation: 8,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      child: Container(
+                        height: heightLeft, 
+                        width: widthLeft,
+                        color: Colors.blue,
+                        child: const Text("")
+                      ),
+                    ),
                   ),
                   Row(
                     children: [
@@ -59,40 +68,78 @@ class CustomBlockWidgetVertical extends StatelessWidget {
           flex: 4,
           child: Row(
             children: [
-              Container(
-                height: 50, 
-                width: 50,
-                color: Colors.amber[800],
-                child: Center(child: Text(minTemp)),
-              ),
               normalized > 0.6
-              ? Stack(
-                alignment: Alignment.centerRight,
-                children: [
-                  Container(
-                    height: heightRight, 
-                    width: widthRight,
-                    color: Colors.amber,
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(""),
+              ? Material(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                elevation: 8,
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+                      child: Container(
+                        height: 50, 
+                        width: 50,
+                        color: Colors.amber[800],
+                        child: Center(child: Text(minTemp)),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(maxTemp),
-                  ),
-                ],
+                    Stack(
+                      alignment: Alignment.centerRight,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(8), bottomRight: Radius.circular(8)),
+                          child: Container(
+                            height: heightRight, 
+                            width: widthRight,
+                            color: Colors.amber,
+                            child: const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(""),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(maxTemp),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               )
               : Row(
                 children: [
-                  Container(
-                    height: heightRight, 
-                    width: widthRight,
-                    color: Colors.amber,
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(""),
+                  Material(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    elevation: 8,
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+                          child: Container(
+                            height: 50, 
+                            width: 50,
+                            color: Colors.amber[800],
+                            child: Center(child: Text(minTemp)),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(topRight: Radius.circular(8), bottomRight: Radius.circular(8)),
+                              child: Container(
+                                height: heightRight, 
+                                width: widthRight,
+                                color: Colors.amber,
+                                child: const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(""),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
