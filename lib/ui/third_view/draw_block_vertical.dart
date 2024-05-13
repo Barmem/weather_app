@@ -40,7 +40,6 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                         height: heightLeft, 
                         width: widthLeft,
                         color: Colors.blue,
-                        child: const Text("")
                       ),
                     ),
                   ),
@@ -93,10 +92,6 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                             height: heightRight, 
                             width: widthRight,
                             color: Colors.amber,
-                            child: const Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(""),
-                            ),
                           ),
                         ),
                         Padding(
@@ -131,11 +126,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                               child: Container(
                                 height: heightRight, 
                                 width: widthRight,
-                                color: Colors.amber,
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(""),
-                                ),
+                                color: Colors.amber
                               ),
                             ),
                           ],
