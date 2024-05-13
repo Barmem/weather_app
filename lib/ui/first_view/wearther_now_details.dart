@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 // import 'package:geolocator/geolocator.dart';
 
+const windSpeedIcon = "assets/weather_icons/wind.png";
+const humidityIcon = "assets/weather_icons/drop.png";
+const pressureIcon = "assets/weather_icons/thermometer-1.png";
 
 class WeatherNowDetailsWidget extends StatefulWidget {
   final apiKey;
@@ -69,9 +72,10 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
                   Padding(
                     padding: const EdgeInsets.only(right: 4.0),
                     child: const Image(
-                    width: 32,
-                    height: 32,
-                    image: AssetImage("assets/weather_icons/wind.png"),
+                      width: 32,
+                      height: 32,
+                      image: AssetImage(windSpeedIcon),
+                    ),
                   ),
                   Text(windSpeed),
                 ],
@@ -84,9 +88,10 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
                   Padding(
                     padding: const EdgeInsets.only(right: 4.0),
                     child: const Image(
-                    width: 32,
-                    height: 32,
-                    image: AssetImage("assets/weather_icons/drop.png"),
+                      width: 32,
+                      height: 32,
+                      image: AssetImage(humidityIcon),
+                    ),
                   ),
                   Text(humidity),
                 ],
@@ -99,9 +104,10 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
                   Padding(
                     padding: const EdgeInsets.only(right: 4.0),
                     child: const Image(
-                    width: 32,
-                    height: 32,
-                    image: AssetImage("assets/weather_icons/thermometer-1.png"),
+                      width: 32,
+                      height: 32,
+                      image: AssetImage(pressureIcon),
+                    ),
                   ),
                   Text(pressure),
                 ],
