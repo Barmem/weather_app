@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 
 
 class WeatherNowDetailsWidget extends StatefulWidget {
@@ -32,14 +32,14 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
   Future<void> fetchData() async {
     String apiUrl = 'https://api.weatherapi.com/v1/current.json?key=${widget.apiKey}&lang=ru&q=';
     String location = widget.location;
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low,
-      );
-      location = "${position.latitude},${position.longitude}";
-    } catch (e) {
-      print('Error fetching location: $e');
-    }
+    // try {
+    //   Position position = await Geolocator.getCurrentPosition(
+    //     desiredAccuracy: LocationAccuracy.low,
+    //   );
+    //   location = "${position.latitude},${position.longitude}";
+    // } catch (e) {
+    //   print('Error fetching location: $e');
+    // }
     try {
 
 
