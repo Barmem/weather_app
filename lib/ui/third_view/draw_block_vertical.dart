@@ -89,7 +89,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.only(topRight: standardRadius, bottomRight: standardRadius),
                           child: Container(
-                            height: heightRight, 
+                            height: heightRight,
                             width: widthRight,
                             color: Colors.amber,
                           ),
