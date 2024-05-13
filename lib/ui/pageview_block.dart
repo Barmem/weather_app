@@ -33,7 +33,7 @@ class PageViewWithText extends StatelessWidget {
                 ),),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0,16.0,0,0),
+                    padding: const EdgeInsets.only( top: 16.0 ),
                     child: PageView(children: 
                       views
                     ),
