@@ -10,6 +10,9 @@ const location = String.fromEnvironment('LOCATION', defaultValue: '');
 const nowWeatherTitle = "Сейчас";
 const todayWeatherTitle = "Сегодня";
 const weekWeatherTitle = "Неделя";
+const infoTextField = 'Сделано в перерывах между написанием диплома Неймышевым Игорем';
+const homePageTitle = "Главная";
+const infoPageTitle = "Инфо";
 const double nowWeatherheight = 224;
 const double todayWeatherheight = 224;
 const double weekWeatherheight = 600;
@@ -96,11 +99,11 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Home",
+            label: homePageTitle,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            label: "Info",
+            label: infoPageTitle,
           ),
         ],
         currentIndex: _selectedIndex,
@@ -117,7 +120,7 @@ class PlaceholderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Сделано в перерывах между написанием диплома Неймышевым Игорем',
+        infoTextField,
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 20),
       ),
