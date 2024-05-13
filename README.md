@@ -1,3 +1,3 @@
 # weather_app
 
-A new Flutter project.
+Для запуска использовать `flutter run --dart-define API_KEY='ВСТАВИТЬ_КЛЮЧ_АПИ' --dart-define LOCATION='Omsk'`

@@ -39,7 +39,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static final List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = [
     ListView(
       children: const [
         PageViewWithText(
@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
@@ -117,8 +117,9 @@ class PlaceholderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Info Placeholder Page',
-        style: TextStyle(fontSize: 24),
+        'Сделано в перерывах между написанием диплома Неймышевым Игорем',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 20),
       ),
     );
   }
