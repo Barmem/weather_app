@@ -69,7 +69,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
           flex: 4,
           child: Row(
             children: [
-              normalized > 0.6
+              normalized > 0.7
               ? Material(
                 borderRadius: BorderRadius.all(standardRadius),
                 elevation: 8,
