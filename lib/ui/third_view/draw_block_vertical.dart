@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 const standardRadius = Radius.circular(8);
 
@@ -32,10 +30,10 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 children: [
                   Material(
-                    borderRadius: BorderRadius.all(standardRadius),
+                    borderRadius: const BorderRadius.all(standardRadius),
                     elevation: 8,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(standardRadius),
+                      borderRadius: const BorderRadius.all(standardRadius),
                       child: Container(
                         height: heightLeft, 
                         width: widthLeft,
@@ -70,12 +68,12 @@ class CustomBlockWidgetVertical extends StatelessWidget {
             children: [
               normalized > 0.7
               ? Material(
-                borderRadius: BorderRadius.all(standardRadius),
+                borderRadius: const BorderRadius.all(standardRadius),
                 elevation: 8,
                 child: Row(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.only(topLeft: standardRadius, bottomLeft: standardRadius),
+                      borderRadius: const BorderRadius.only(topLeft: standardRadius, bottomLeft: standardRadius),
                       child: Container(
                         height: 50, 
                         width: 50,
@@ -87,7 +85,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.only(topRight: standardRadius, bottomRight: standardRadius),
+                          borderRadius: const BorderRadius.only(topRight: standardRadius, bottomRight: standardRadius),
                           child: Container(
                             height: heightRight,
                             width: widthRight,
@@ -106,12 +104,12 @@ class CustomBlockWidgetVertical extends StatelessWidget {
               : Row(
                 children: [
                   Material(
-                    borderRadius: BorderRadius.all(standardRadius),
+                    borderRadius: const BorderRadius.all(standardRadius),
                     elevation: 8,
                     child: Row(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.only(topLeft: standardRadius, bottomLeft: standardRadius),
+                          borderRadius: const BorderRadius.only(topLeft: standardRadius, bottomLeft: standardRadius),
                           child: Container(
                             height: 50, 
                             width: 50,
@@ -122,7 +120,7 @@ class CustomBlockWidgetVertical extends StatelessWidget {
                         Row(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.only(topRight: standardRadius, bottomRight: standardRadius),
+                              borderRadius: const BorderRadius.only(topRight: standardRadius, bottomRight: standardRadius),
                               child: Container(
                                 height: heightRight, 
                                 width: widthRight,

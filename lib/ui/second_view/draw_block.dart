@@ -17,10 +17,10 @@ class CustomBlockWidget extends StatelessWidget {
       children: [
         Text(topText),
         Material(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
           elevation: 8,
           child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
             child: Container(
               height: height, 
               width: width,

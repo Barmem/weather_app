@@ -69,9 +69,9 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 4.0),
-                    child: const Image(
+                  const Padding(
+                    padding: EdgeInsets.only(right: 4.0),
+                    child: Image(
                       width: 32,
                       height: 32,
                       image: AssetImage(windSpeedIcon),
@@ -85,9 +85,9 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 4.0),
-                    child: const Image(
+                  const Padding(
+                    padding: EdgeInsets.only(right: 4.0),
+                    child: Image(
                       width: 32,
                       height: 32,
                       image: AssetImage(humidityIcon),
@@ -101,9 +101,9 @@ class _WeatherNowDetailsWidgetState extends State<WeatherNowDetailsWidget> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 4.0),
-                    child: const Image(
+                  const Padding(
+                    padding: EdgeInsets.only(right: 4.0),
+                    child: Image(
                       width: 32,
                       height: 32,
                       image: AssetImage(pressureIcon),

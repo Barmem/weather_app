@@ -19,18 +19,18 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const MainScreen(),
+    return const MaterialApp(
+      home: MainScreen(),
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -39,7 +39,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     ListView(
       children: const [
         PageViewWithText(
@@ -111,11 +111,11 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 class PlaceholderPage extends StatelessWidget {
-  const PlaceholderPage({Key? key}) : super(key: key);
+  const PlaceholderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Info Placeholder Page',
         style: TextStyle(fontSize: 24),
