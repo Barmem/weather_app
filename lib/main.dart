@@ -7,30 +7,118 @@ import 'package:weather_app/ui/third_view/daily_cond.dart';
 
 const apiKey = String.fromEnvironment('API_KEY', defaultValue: '');
 const location = String.fromEnvironment('LOCATION', defaultValue: '');
-const nowWeatherTitle  = "Сейчас";
+const nowWeatherTitle = "Сейчас";
 const todayWeatherTitle = "Сегодня";
 const weekWeatherTitle = "Неделя";
-const double nowWeatherheight  = 224;
+const double nowWeatherheight = 224;
 const double todayWeatherheight = 224;
 const double weekWeatherheight = 600;
+
 void main() {
   runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: ListView(
-          children: const [
-            PageViewWithText(title: nowWeatherTitle, viewHeight: nowWeatherheight, views: [ Center(child: WeatherNowWidget( apiKey: apiKey, location: location )), WeatherNowDetailsWidget( apiKey: apiKey, location: location ) ] ),
-            PageViewWithText(title: todayWeatherTitle, viewHeight: todayWeatherheight, views: [ HourlyWeatherWidget( apiKey: apiKey, location: location ), ] ),
-            PageViewWithText(title: weekWeatherTitle, viewHeight: weekWeatherheight, views: [ DailyWeatherWidget( apiKey: apiKey, location: location ), ] ),
+      home: const MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    ListView(
+      children: const [
+        PageViewWithText(
+          title: nowWeatherTitle,
+          viewHeight: nowWeatherheight,
+          views: [
+            Center(
+                child: WeatherNowWidget(
+              apiKey: apiKey,
+              location: location,
+            )),
+            WeatherNowDetailsWidget(
+              apiKey: apiKey,
+              location: location,
+            ),
           ],
         ),
+        PageViewWithText(
+          title: todayWeatherTitle,
+          viewHeight: todayWeatherheight,
+          views: [
+            HourlyWeatherWidget(
+              apiKey: apiKey,
+              location: location,
+            ),
+          ],
+        ),
+        PageViewWithText(
+          title: weekWeatherTitle,
+          viewHeight: weekWeatherheight,
+          views: [
+            DailyWeatherWidget(
+              apiKey: apiKey,
+              location: location,
+            ),
+          ],
+        ),
+      ],
+    ),
+    const PlaceholderPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: "Info",
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class PlaceholderPage extends StatelessWidget {
+  const PlaceholderPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        'Info Placeholder Page',
+        style: TextStyle(fontSize: 24),
       ),
     );
   }
