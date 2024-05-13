@@ -16,13 +16,20 @@ class CustomBlockWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(topText),
-        Container(
-          height: height, 
-          width: width,
-          color: Colors.blue, 
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Image.network(image),
+        Material(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          elevation: 8,
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            child: Container(
+              height: height, 
+              width: width,
+              color: Colors.blue, 
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.network(image),
+              ),
+            ),
           ),
         ),
         Text(bottomText)
